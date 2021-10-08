@@ -6,7 +6,7 @@ import "../styles/style.css"
 const Header = () => {
   return (
     <Container fluid className="px-0">
-      <Navbar expand="sm" bg="light" variant="light" className="px-2">
+      <Navbar expand="sm" bg="light" variant="light" className="px-4">
         <Navbar.Brand href="/">Kyle Brown</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive">

@@ -1,3 +1,7 @@
 body {
   font-family: "Poppins", "Roboto";
 }
+
+.text-responsive {
+  font-size: calc(100% + 1vw + 1vh);
+}
