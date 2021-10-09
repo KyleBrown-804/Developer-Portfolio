@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Image } from "react-bootstrap"
-import Accordion from "react-bootstrap/Accordion"
+import { Container, Accordion, Row, Col, Image } from "react-bootstrap"
 import DevIcon2 from "../images/commits_dev.svg"
 
 const Skills = () => {
@@ -26,6 +25,7 @@ const Skills = () => {
                   <li>Python</li>
                   <li>SQL</li>
                   <li>NoSQL</li>
+                  <li>x86 Assembly</li>
                 </ul>
               </Accordion.Body>
             </Accordion.Item>

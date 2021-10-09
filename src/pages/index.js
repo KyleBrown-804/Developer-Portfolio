@@ -3,6 +3,7 @@ import Seo from "../components/seo"
 import Hero from "../components/hero"
 import About from "../components/about"
 import Skills from "../components/skills"
+import Projects from "../components/projects"
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
 import Layout from "../components/layout"
 import "../styles/style.css"
@@ -54,6 +55,10 @@ const IndexPage = () => {
 
       <div style={{ marginBottom: "15%" }}>
         <Skills />
+      </div>
+
+      <div style={{ marginBottom: "15%" }}>
+        <Projects />
       </div>
 
       {/* Projects section 
