@@ -12,7 +12,7 @@ const Skills = () => {
         <Col>
           <h1>What I Know</h1>
 
-          <Accordion>
+          <Accordion className="mt-4">
             <Accordion.Item eventKey="0">
               <Accordion.Header>Languages</Accordion.Header>
               <Accordion.Body>
