@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Image, Button, Accordion } from "react-bootstrap"
+import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
 import resumeDevIcon from "../images/resume_dev.svg"
 
 const schoolsList = [
@@ -32,47 +32,48 @@ const Experience = () => {
   return (
     <Container fluid>
       <Row className="px-5">
+        {/* Experience Half */}
         <Col>
           <h1>My Experience</h1>
-          <Accordion defaultActiveKey="0" className="mt-4">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                Computer Science Teaching Assistant
-              </Accordion.Header>
-              <Accordion.Body>
-                <p>
-                  During my time at Central Washington University, I became a
-                  paid department wide teaching assistant and tutor for the
-                  Computer Science Department. Throughout my Junior and Senior
-                  years at CWU I helped students of all levels with
-                  understanding various Computer Science concepts. This also
-                  helped to solidify my own understanding of many concepts as I
-                  gained expierence teaching and walking other students through
-                  things I previously struggled through.
-                  <br />
-                  <br />
-                  These concepts included: Data Structures, Algorithms,
-                  Databases & Queries, Mobile Development, Computer
-                  Architecture, and programming languages such as Java, Python,
-                  JavaScript, HTML, CSS, SQL, C, C++, and Assembly.
-                  <br />
-                  <br />
-                  When the pandemic began and learning switched to fully remote,
-                  I led and managed a Discord server of other peers and students
-                  in the CS Department. The popularity of the server grew as it
-                  was an efficient way to facilitate communication between
-                  classmates. It also helped as a place for myself and the
-                  couple of other department-wide Teaching Assistants to
-                  virtually tutor. This server would eventually grow to include
-                  over roughly 400 students and a few professors and faculty. As
-                  my supervisor was also the department secretary, I would also
-                  become the person who would make department wide announcements
-                  and relay information to the entire student body.
-                </p>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          <Card className="mt-4">
+            <Card.Body>
+              <Card.Title>
+                <b>Computer Science Teaching Assistant</b>
+              </Card.Title>
+              <Card.Text>
+                During my time at Central Washington University, I became a paid
+                department wide teaching assistant and tutor for the Computer
+                Science Department. Throughout my Junior and Senior years at CWU
+                I helped students of all levels with understanding various
+                Computer Science concepts. This also helped to solidify my own
+                understanding of many concepts as I gained expierence teaching
+                and walking other students through things I previously struggled
+                through.
+                <br />
+                <br />
+                These concepts included: Data Structures, Algorithms, Databases
+                & Queries, Mobile Development, Computer Architecture, and
+                programming languages such as Java, Python, JavaScript, HTML,
+                CSS, SQL, C, C++, and Assembly.
+                <br />
+                <br />
+                When the pandemic began and learning switched to fully remote, I
+                led and managed a Discord server of other peers and students in
+                the CS Department. The popularity of the server grew as it was
+                an efficient way to facilitate communication between classmates.
+                It also helped as a place for myself and the couple of other
+                department-wide Teaching Assistants to virtually tutor. This
+                server would eventually grow to include over roughly 400
+                students and a few professors and faculty. As my supervisor was
+                also the department secretary, I would also become the person
+                who would make department wide announcements and relay
+                information to the entire student body.
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
+
+        {/* Education Half */}
         <Col>
           <Row className="mb-3">
             <h1>My Education</h1>

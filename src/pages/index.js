@@ -5,7 +5,7 @@ import About from "../components/about"
 import Skills from "../components/skills"
 import Projects from "../components/projects"
 import Experience from "../components/experience"
-import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
+import Contact from "../components/contactForm"
 import Layout from "../components/layout"
 import "../styles/style.css"
 
@@ -66,8 +66,9 @@ const IndexPage = () => {
         <Experience />
       </div>
 
-      {/* Contact section
-        provide a simple form to send an email for job opportunities */}
+      <div style={{ marginBottom: "15%" }}>
+        <Contact />
+      </div>
     </Layout>
   )
 }
