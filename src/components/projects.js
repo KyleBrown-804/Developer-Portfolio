@@ -1,14 +1,11 @@
 import React, { useState } from "react"
-import { Container, Accordion, Row, Col, Image, Button } from "react-bootstrap"
+import { Container, Row, Col, Image, Button } from "react-bootstrap"
+
 // Logos
-import jsLogo from "../images/javascript_logo.svg"
 import nodeLogo from "../images/node_logo.svg"
-import cplusLogo from "../images/c++_logo.svg"
-import buggyAILogo from "../images/beetle.png"
-import codingSvg from "../images/code_computer.svg"
 import reactLogo from "../images/react_icon.png"
 
-// Screenshots
+import codingSvg from "../images/code_computer.svg"
 import cpuSimImg from "../images/screenshots/cpu_sim1.png"
 import buggyAIImg from "../images/screenshots/buggyAI1.png"
 import synthImg from "../images/screenshots/synthy1.png"

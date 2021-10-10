@@ -4,6 +4,7 @@ import Hero from "../components/hero"
 import About from "../components/about"
 import Skills from "../components/skills"
 import Projects from "../components/projects"
+import Experience from "../components/experience"
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
 import Layout from "../components/layout"
 import "../styles/style.css"
@@ -61,9 +62,9 @@ const IndexPage = () => {
         <Projects />
       </div>
 
-      {/* Projects section 
-        with small screenshot and github icon with links
-        also should have paragraphs next to it with descriptions  */}
+      <div style={{ marginBottom: "15%" }}>
+        <Experience />
+      </div>
 
       {/* Contact section
         provide a simple form to send an email for job opportunities */}
