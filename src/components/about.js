@@ -12,11 +12,11 @@ const About = () => {
             <h1>Who I Am</h1>
             <h4>
               I am a recent Computer Science graduate from Central Washington
-              University. I have expierence in multiple languages and
-              technologies between both back-end and front-end development. I am
-              interested in Web Development as well as back-end server side code
-              and handling API connections. I enjoy writing queries and
-              interactions between databases too.
+              University. I have experience in multiple languages, frameworks,
+              environments, and experience between both back-end and front-end
+              development. I am interested in Web Development as well as
+              back-end server side code and handling API connections. I enjoy
+              writing queries and interactions between databases too.
               <br />
               <br />I am a fan of many genres of music and have been playing
               guitar for several years. I enjoy playing video games, primarily

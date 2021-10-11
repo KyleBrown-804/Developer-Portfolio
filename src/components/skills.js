@@ -10,7 +10,7 @@ const Skills = () => {
           <Image fluid="md" src={DevIcon2} alt="Dev Icon 2"></Image>
         </Col>
         <Col>
-          <h1>What I Know</h1>
+          <h1 className="text-center">What I Know</h1>
 
           <Accordion className="mt-4">
             <Accordion.Item eventKey="0">

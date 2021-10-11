@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Image, Button } from "react-bootstrap"
+import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
 
 // Logos
 import nodeLogo from "../images/node_logo.svg"
@@ -160,16 +160,16 @@ const Projects = () => {
     <Container fluid>
       <Row className="px-5">
         {/* Grid wrapping icons */}
-        <Col>
+        <Col className="d-flex flex-column">
           <h1>What I've Developed</h1>
 
           <Row className="mb-3">
-            {chunk(projectsList, 2).map(row => {
+            {chunk(projectsList, 2).map((row, i) => {
               return (
-                <Row>
+                <Row key={i}>
                   {row.map(item => {
                     return (
-                      <Col className="my-3">
+                      <Col className="my-3" key={item.id}>
                         <Button
                           as="div"
                           variant="outline-secondary"
@@ -191,20 +191,33 @@ const Projects = () => {
             })}
           </Row>
 
-          <Row>
-            {currentProject === "" ? <></> : <h4>About this project:</h4>}
-            <p>{projectDescription}</p>
+          <Row className="mt-auto">
+            {currentProject === "" ? (
+              <></>
+            ) : (
+              <Card>
+                <Card.Title className="px-3 mt-3 mb-0">
+                  <h4>About this project:</h4>
+                </Card.Title>
+                <Card.Body className="px-3 pt-0">
+                  <p>{projectDescription}</p>
+                </Card.Body>
+              </Card>
+            )}
           </Row>
         </Col>
 
         {/* Image preview and links */}
-        <Col>
-          <h1 style={{ textAlign: "center" }}>{currentProject}</h1>
-
+        <Col className="d-flex flex-column">
           {projectImage === null ? (
             <></>
           ) : (
-            <Row>
+            <h1 className="text-center">{currentProject}</h1>
+          )}
+          {projectImage === null ? (
+            <h1 className="text-center">Click Left</h1>
+          ) : (
+            <Row className="mt-auto">
               <Image
                 src={projectImage}
                 alt="CPU Sim Screenshot"

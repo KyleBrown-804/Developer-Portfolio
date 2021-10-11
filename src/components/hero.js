@@ -25,11 +25,11 @@ const Hero = props => {
               Washington
             </h1>
             <animated.h3 className="py-2">
-              I have expierence in several languages, frameworks, and
-              development environments.
+              I am looking for an entry or junior level software engineer or
+              software developer position in or around Seattle, Washington.
               <br />
               <br />
-              <em>Just to name a few:</em>
+              <em>A few things I can do:</em>
               &nbsp; {skill}
             </animated.h3>
 

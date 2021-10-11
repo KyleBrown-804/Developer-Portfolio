@@ -1,5 +1,15 @@
-import React, { useState } from "react"
-import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
+import React from "react"
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  Button,
+  Card,
+  Overlay,
+  Popover,
+  OverlayTrigger,
+} from "react-bootstrap"
 import resumeDevIcon from "../images/resume_dev.svg"
 
 const schoolsList = [
@@ -27,7 +37,17 @@ const schoolsList = [
 ]
 
 const Experience = () => {
-  const [currentSchool, setCurrentSchool] = useState(null)
+  const popover = index => (
+    <Popover id="top-popover">
+      <Popover.Header as="h4">{schoolsList[index].name}</Popover.Header>
+      <Popover.Body>
+        {schoolsList[index].degree}{" "}
+        {schoolsList[index].major !== "" ? "in" : ""} {schoolsList[index].major}
+        <br />
+        Acquired in {schoolsList[index].date}
+      </Popover.Body>
+    </Popover>
+  )
 
   return (
     <Container fluid>
@@ -74,52 +94,48 @@ const Experience = () => {
         </Col>
 
         {/* Education Half */}
-        <Col>
+        <Col className="d-flex flex-column">
           <Row className="mb-3">
-            <h1>My Education</h1>
+            <h1 className="text-center">My Education</h1>
             <Image src={resumeDevIcon} alt="Resume Dev Icon"></Image>
           </Row>
-          <Row>
+          <Row className="mt-auto">
             <Col>
-              <Button
-                variant="outline-secondary"
-                onClick={() => setCurrentSchool(schoolsList[0])}
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                rootClose={true}
+                overlay={popover(0)}
               >
-                Central Washington University
-              </Button>
+                <Button variant="outline-secondary">
+                  Central Washington University
+                </Button>
+              </OverlayTrigger>
             </Col>
             <Col>
-              <Button
-                variant="outline-secondary"
-                onClick={() => setCurrentSchool(schoolsList[1])}
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                rootClose={true}
+                overlay={popover(1)}
               >
-                Pierce College (Puyallup)
-              </Button>
+                <Button variant="outline-secondary">
+                  Pierce College (Puyallup)
+                </Button>
+              </OverlayTrigger>
             </Col>
             <Col>
-              <Button
-                variant="outline-secondary"
-                onClick={() => setCurrentSchool(schoolsList[2])}
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                rootClose={true}
+                overlay={popover(2)}
               >
-                Franklin Pierce High School
-              </Button>
+                <Button variant="outline-secondary">
+                  Franklin Pierce High School
+                </Button>
+              </OverlayTrigger>
             </Col>
-
-            {/* Dynamically rendered description box (full width on bottom) */}
-            <Row className="mt-3">
-              {currentSchool === null ? (
-                <></>
-              ) : (
-                <h4>
-                  {currentSchool.name}
-                  <br />
-                  {currentSchool.degree}{" "}
-                  {currentSchool.major !== "" ? "in" : ""} {currentSchool.major}
-                  <br />
-                  Acquired in {currentSchool.date}
-                </h4>
-              )}
-            </Row>
           </Row>
         </Col>
       </Row>
