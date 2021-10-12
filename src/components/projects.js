@@ -6,9 +6,9 @@ import nodeLogo from "../images/node_logo.svg"
 import reactLogo from "../images/react_icon.png"
 
 import codingSvg from "../images/code_computer.svg"
-import cpuSimImg from "../images/screenshots/cpusim1.png"
-import buggyAIImg from "../images/screenshots/buggyai.png"
-import synthImg from "../images/screenshots/synthy1.png"
+import cpuSimImg from "../images/cpusim1.png"
+import buggyAIImg from "../images/buggyai.png"
+import synthImg from "../images/synthy1.png"
 
 const projectsList = [
   {
