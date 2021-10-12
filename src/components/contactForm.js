@@ -15,7 +15,7 @@ const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
 
   return (
-    <Container fluid>
+    <Container fluid id="contact" className="pt-3">
       <Row className="px-5">
         <Col className="d-flex flex-column">
           <h1>Let's Talk!</h1>
@@ -64,6 +64,7 @@ const Contact = () => {
                   as="textarea"
                   rows={4}
                   placeholder="Hello Kyle! My name is ___, I found your portfolio and wanted to schedule an interview with you sometime this week."
+                  style={{ resize: "none" }}
                 ></Form.Control>
               </Form.Group>
 

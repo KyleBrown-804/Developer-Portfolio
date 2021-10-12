@@ -1,12 +1,11 @@
-import React, { useState } from "react"
-import { Container, Card, Row, Col, Button, Image } from "react-bootstrap"
+import React from "react"
+import { Container, Row, Col, Image } from "react-bootstrap"
 import DevIcon from "../images/proud_dev.svg"
-import "../styles/global.css"
 
 const About = () => {
   return (
     <div>
-      <Container fluid>
+      <Container fluid id="about" className="pt-3">
         <Row className="px-5">
           <Col className="ps-0 h-100">
             <h1>Who I Am</h1>

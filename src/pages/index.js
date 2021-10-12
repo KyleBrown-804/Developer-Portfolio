@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Seo from "../components/seo"
 import Hero from "../components/hero"
 import About from "../components/about"
@@ -7,7 +7,6 @@ import Projects from "../components/projects"
 import Experience from "../components/experience"
 import Contact from "../components/contactForm"
 import Layout from "../components/layout"
-import "../styles/style.css"
 
 const skillsList = [
   "Java",
@@ -46,27 +45,27 @@ const IndexPage = () => {
       <Seo title="Home" />
 
       {/* Give spacing between components in parent container */}
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <Hero skillList={skillsList} />
       </div>
 
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <About />
       </div>
 
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <Skills />
       </div>
 
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <Projects />
       </div>
 
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <Experience />
       </div>
 
-      <div style={{ marginBottom: "15%" }}>
+      <div style={{ marginBottom: "20%" }}>
         <Contact />
       </div>
     </Layout>

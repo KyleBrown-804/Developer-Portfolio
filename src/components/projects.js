@@ -133,7 +133,7 @@ const Projects = () => {
 
   const chunk = (arr, cols) => {
     let res = []
-    arr.map((item, i) => {
+    arr.forEach((elem, i) => {
       if (i % cols === 0) {
         res.push(arr.slice(i, i + cols))
       }
@@ -157,7 +157,7 @@ const Projects = () => {
   }
 
   return (
-    <Container fluid>
+    <Container fluid id="projects" className="pt-3">
       <Row className="px-5">
         {/* Grid wrapping icons */}
         <Col className="d-flex flex-column">
@@ -193,7 +193,9 @@ const Projects = () => {
 
           <Row className="mt-auto">
             {currentProject === "" ? (
-              <></>
+              <h4 className="text-center">
+                Click on one of the projects above to view
+              </h4>
             ) : (
               <Card>
                 <Card.Title className="px-3 mt-3 mb-0">
@@ -215,7 +217,7 @@ const Projects = () => {
             <h1 className="text-center">{currentProject}</h1>
           )}
           {projectImage === null ? (
-            <h1 className="text-center">Click Left</h1>
+            <></>
           ) : (
             <Row className="mt-auto">
               <Image

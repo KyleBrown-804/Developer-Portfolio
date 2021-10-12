@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Container, Card, Row, Col, Button, Image } from "react-bootstrap"
 import { useTransition, animated } from "react-spring"
 import useInterval from "react-useinterval"
-import headshot from "../images/developer.jpg"
+import headshot from "../images/kyle_dev_icon.svg"
 
 const Hero = props => {
   const [index, setIndex] = useState(0)
@@ -43,7 +43,12 @@ const Hero = props => {
           </Col>
 
           <Col>
-            <Image src={headshot} alt="Headshot" fluid />
+            <Image
+              src={headshot}
+              alt="Headshot"
+              fluid
+              style={{ display: "block", margin: "auto" }}
+            />
           </Col>
         </Row>
       </Card>

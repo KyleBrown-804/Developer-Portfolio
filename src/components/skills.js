@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { Container, Accordion, Row, Col, Image } from "react-bootstrap"
 import DevIcon2 from "../images/commits_dev.svg"
 
 const Skills = () => {
   return (
-    <Container fluid>
+    <Container fluid id="skills" className="pt-3">
       <Row className="px-5">
         <Col>
           <Image fluid="md" src={DevIcon2} alt="Dev Icon 2"></Image>

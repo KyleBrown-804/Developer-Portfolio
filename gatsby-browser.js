@@ -7,3 +7,4 @@
 import "@fontsource/poppins"
 import "@fontsource/roboto"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "@fortawesome/fontawesome-svg-core/styles.css"
