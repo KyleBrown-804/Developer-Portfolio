@@ -157,7 +157,7 @@ const Contact = () => {
                 variant="outline-secondary"
                 type="submit"
                 className="w-100 mt-3"
-                disabled={recaptchaValue === null}
+                disabled={true}
               >
                 Submit
               </Button>
