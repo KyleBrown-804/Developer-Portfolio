@@ -34,7 +34,7 @@ const Contact = () => {
     setFormFailure(false)
     const form = event.target
 
-    fetch("/", {
+    fetch("/?no-cache=1", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
