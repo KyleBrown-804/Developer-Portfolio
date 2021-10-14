@@ -32,20 +32,19 @@ const Contact = () => {
   const handleSubmit = event => {
     event.preventDefault()
     setFormFailure(false)
-    const form = event.target
 
-    fetch("/?no-cache=1", {
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        "form-name": event.target.getAttribute("name"),
         ...submissionContent,
       }),
     })
       .then(() => setFormSuccess(true))
       .catch(error => {
         setFormFailure(true)
-        alert(error)
+        console.log(error)
       })
   }
 
@@ -70,17 +69,16 @@ const Contact = () => {
               name="contact"
               method="post"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              data-netlify-recaptcha="true"
+              // data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
-              <p hidden>
+              {/* <p hidden>
                 <label>
                   Don't fill this out:{" "}
                   <input name="bot-field" onChange={handleChange} />
                 </label>
-              </p>
+              </p> */}
 
               {formSuccess === false ? (
                 <></>
@@ -136,7 +134,7 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              <div data-netlify-recaptcha="true"></div>
+              {/* <div data-netlify-recaptcha="true"></div> */}
 
               <Button
                 variant="outline-secondary"
