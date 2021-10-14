@@ -136,7 +136,7 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              <div className="pb-2" data-netlify-recaptcha="true"></div>
+              <div data-netlify-recaptcha="true"></div>
 
               <Button
                 variant="outline-secondary"
