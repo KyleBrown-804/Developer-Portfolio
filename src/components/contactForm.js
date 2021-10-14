@@ -27,7 +27,7 @@ const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFailure, setFormFailure] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const recaptchaRef = useRef()
+  const [recaptchaValue, setRecaptchaValue] = useState(null)
   const [submissionContent, setSubmissionConent] = useState({})
 
   const handleChange = event => {
@@ -41,7 +41,6 @@ const Contact = () => {
     event.preventDefault()
     setSubmitting(true)
     setFormFailure(false)
-    const recaptchaValue = recaptchaRef.current
 
     fetch("/", {
       method: "POST",
@@ -157,7 +156,7 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+              <ReCAPTCHA onChange={setRecaptchaValue} sitekey={RECAPTCHA_KEY} />
 
               <Button
                 variant="outline-secondary"
