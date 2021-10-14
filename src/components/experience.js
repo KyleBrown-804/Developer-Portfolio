@@ -49,7 +49,7 @@ const Experience = () => {
   )
 
   return (
-    <Container fluid id="experience" className="pt-3">
+    <Container fluid className="pt-3">
       <Row className="px-5">
         {/* Experience Half */}
         <Col>

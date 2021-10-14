@@ -4,7 +4,7 @@ import DevIcon2 from "../images/commits_dev.svg"
 
 const Skills = () => {
   return (
-    <Container fluid id="skills" className="pt-3">
+    <Container fluid className="pt-3">
       <Row className="px-5">
         <Col>
           <Image fluid="md" src={DevIcon2} alt="Dev Icon 2"></Image>

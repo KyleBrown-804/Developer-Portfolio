@@ -157,7 +157,7 @@ const Projects = () => {
   }
 
   return (
-    <Container fluid id="projects" className="pt-3">
+    <Container fluid className="pt-3">
       <Row className="px-5">
         {/* Grid wrapping icons */}
         <Col className="d-flex flex-column">

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { navigate } from "gatsby-link"
 import { Container, Card, Row, Col, Button, Image } from "react-bootstrap"
 import { useTransition, animated } from "react-spring"
 import useInterval from "react-useinterval"
@@ -37,8 +38,10 @@ const Hero = props => {
               size="lg"
               variant="outline-secondary"
               className="mt-auto mb-2"
+              role="link"
+              onClick={() => navigate("/#contact")}
             >
-              Let's Schedule an Interview
+              Hire Me!
             </Button>
           </Col>
 

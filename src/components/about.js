@@ -5,7 +5,7 @@ import DevIcon from "../images/proud_dev.svg"
 const About = () => {
   return (
     <div>
-      <Container fluid id="about" className="pt-3">
+      <Container fluid className="pt-3">
         <Row className="px-5">
           <Col className="ps-0 h-100">
             <h1>Who I Am</h1>

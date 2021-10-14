@@ -44,28 +44,27 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Home" />
 
-      {/* Give spacing between components in parent container */}
       <div style={{ marginBottom: "20%" }}>
         <Hero skillList={skillsList} />
       </div>
 
-      <div style={{ marginBottom: "20%" }}>
+      <div id="about" style={{ marginBottom: "20%", paddingTop: 70 }}>
         <About />
       </div>
 
-      <div style={{ marginBottom: "20%" }}>
+      <div id="skills" style={{ marginBottom: "20%", paddingTop: 70 }}>
         <Skills />
       </div>
 
-      <div style={{ marginBottom: "20%" }}>
+      <div id="projects" style={{ marginBottom: "20%", paddingTop: 70 }}>
         <Projects />
       </div>
 
-      <div style={{ marginBottom: "20%" }}>
+      <div id="experience" style={{ marginBottom: "20%", paddingTop: 70 }}>
         <Experience />
       </div>
 
-      <div style={{ marginBottom: "20%" }}>
+      <div id="contact" style={{ marginBottom: "20%", paddingTop: 70 }}>
         <Contact />
       </div>
     </Layout>

@@ -8,7 +8,13 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 const Header = () => {
   return (
     <Container fluid className="px-0">
-      <Navbar expand="md" bg="light" variant="light" className="px-4">
+      <Navbar
+        expand="md"
+        bg="light"
+        variant="light"
+        className="px-4"
+        fixed="top"
+      >
         <Navbar.Brand href="/">Kyle Brown</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarResponsive" />
         <Navbar.Collapse id="navbarResponsive">
