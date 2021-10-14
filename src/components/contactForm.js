@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
 import {
   Container,
   Row,
@@ -11,6 +12,11 @@ import {
 } from "react-bootstrap"
 import contactDevIcon from "../images/contact_dev.svg"
 
+const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
+if (typeof RECAPTCHA_KEY === "undefined") {
+  throw new Error(`Env var SITE_RECAPTCHA_KEY is undefined!`)
+}
+
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -20,6 +26,8 @@ function encode(data) {
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFailure, setFormFailure] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const recaptchaRef = useRef()
   const [submissionContent, setSubmissionConent] = useState({})
 
   const handleChange = event => {
@@ -31,22 +39,35 @@ const Contact = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    setSubmitting(true)
     setFormFailure(false)
-    setFormSuccess(true)
+    const recaptchaValue = recaptchaRef.current
 
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({
-    //     "form-name": event.target.getAttribute("name"),
-    //     ...submissionContent,
-    //   }),
-    // })
-    //   .then(() => setFormSuccess(true))
-    //   .catch(error => {
-    //     setFormFailure(true)
-    //     console.log(error)
-    //   })
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": event.target.getAttribute("name"),
+        ...submissionContent,
+        "g-recaptcha-response": recaptchaValue,
+      }),
+    })
+      .then(response => {
+        if (response.status === 200 && !response.redirected) {
+          setFormSuccess(true)
+        } else {
+          console.log("Error occured:")
+          console.log(response.json())
+          setFormFailure(true)
+        }
+
+        setSubmitting(false)
+      })
+      .catch(error => {
+        setFormFailure(true)
+        setSubmitting(false)
+        console.log(error)
+      })
   }
 
   return (
@@ -72,6 +93,7 @@ const Contact = () => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               data-netlify-recaptcha="true"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
               <p hidden>
@@ -135,12 +157,13 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              <div data-netlify-recaptcha="true"></div>
+              <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
 
               <Button
                 variant="outline-secondary"
                 type="submit"
-                className="w-100 mt-auto"
+                className="w-100 mt-3"
+                disabled={submitting}
               >
                 Submit
               </Button>
