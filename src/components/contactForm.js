@@ -15,6 +15,8 @@ import contactDevIcon from "../images/contact_dev.svg"
 const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY
 if (typeof RECAPTCHA_KEY === "undefined") {
   throw new Error(`Env var SITE_RECAPTCHA_KEY is undefined!`)
+} else {
+  console.log("Recaptcha key:", RECAPTCHA_KEY)
 }
 
 function encode(data) {
@@ -26,7 +28,6 @@ function encode(data) {
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFailure, setFormFailure] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
   const [recaptchaValue, setRecaptchaValue] = useState(null)
   const [submissionContent, setSubmissionConent] = useState({})
 
@@ -39,7 +40,6 @@ const Contact = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    setSubmitting(true)
     setFormFailure(false)
 
     fetch("/", {
@@ -59,12 +59,9 @@ const Contact = () => {
           console.log(response.json())
           setFormFailure(true)
         }
-
-        setSubmitting(false)
       })
       .catch(error => {
         setFormFailure(true)
-        setSubmitting(false)
         console.log(error)
       })
   }
@@ -162,7 +159,7 @@ const Contact = () => {
                 variant="outline-secondary"
                 type="submit"
                 className="w-100 mt-3"
-                disabled={submitting}
+                disabled={recaptchaValue === null}
               >
                 Submit
               </Button>
