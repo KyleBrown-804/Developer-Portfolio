@@ -11,8 +11,15 @@ import {
 } from "react-bootstrap"
 import contactDevIcon from "../images/contact_dev.svg"
 
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const Contact = () => {
   const [formSuccess, setFormSuccess] = useState(false)
+  const [formFailure, setFormFailure] = useState(false)
   const [submissionContent, setSubmissionConent] = useState({})
 
   const handleChange = event => {
@@ -24,7 +31,22 @@ const Contact = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    setFormSuccess(true)
+    setFormFailure(false)
+    const form = event.target
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...submissionContent,
+      }),
+    })
+      .then(() => setFormSuccess(true))
+      .catch(error => {
+        setFormFailure(true)
+        alert(error)
+      })
   }
 
   return (
@@ -69,11 +91,22 @@ const Contact = () => {
                 </Alert>
               )}
 
+              {formFailure === false ? (
+                <></>
+              ) : (
+                <Alert variant="danger">
+                  <Alert.Heading>Oops!</Alert.Heading>An error occurred when
+                  trying to submit your email. If this error persists, please
+                  reach out to me on LinkedIn!
+                </Alert>
+              )}
+
               <Form.Group controlId="formContactName" className="mb-3">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="First Name Last Name"
+                  maxLength={100}
                   name="name"
                   onChange={handleChange}
                 ></Form.Control>
@@ -84,6 +117,7 @@ const Contact = () => {
                 <Form.Control
                   type="email"
                   placeholder="yourName@company.com"
+                  maxLength={254}
                   name="email"
                   onChange={handleChange}
                 ></Form.Control>
@@ -96,6 +130,7 @@ const Contact = () => {
                   rows={4}
                   placeholder="Hello Kyle! My name is ___, I found your portfolio and wanted to schedule an interview with you sometime this week."
                   style={{ resize: "none" }}
+                  maxLength={2200}
                   name="message"
                   onChange={handleChange}
                 ></Form.Control>
