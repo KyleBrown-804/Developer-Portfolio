@@ -32,20 +32,21 @@ const Contact = () => {
   const handleSubmit = event => {
     event.preventDefault()
     setFormFailure(false)
+    setFormSuccess(true)
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": event.target.getAttribute("name"),
-        ...submissionContent,
-      }),
-    })
-      .then(() => setFormSuccess(true))
-      .catch(error => {
-        setFormFailure(true)
-        console.log(error)
-      })
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({
+    //     "form-name": event.target.getAttribute("name"),
+    //     ...submissionContent,
+    //   }),
+    // })
+    //   .then(() => setFormSuccess(true))
+    //   .catch(error => {
+    //     setFormFailure(true)
+    //     console.log(error)
+    //   })
   }
 
   return (
@@ -70,6 +71,7 @@ const Contact = () => {
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              data-netlify-recaptcha="true"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -134,7 +136,7 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              {/* <div data-netlify-recaptcha="true"></div> */}
+              <div data-netlify-recaptcha="true"></div>
 
               <Button
                 variant="outline-secondary"
