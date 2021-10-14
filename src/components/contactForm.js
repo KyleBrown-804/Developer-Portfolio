@@ -69,16 +69,16 @@ const Contact = () => {
               name="contact"
               method="post"
               data-netlify="true"
-              // data-netlify-honeypot="bot-field"
+              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
-              {/* <p hidden>
+              <p hidden>
                 <label>
                   Don't fill this out:{" "}
                   <input name="bot-field" onChange={handleChange} />
                 </label>
-              </p> */}
+              </p>
 
               {formSuccess === false ? (
                 <></>
