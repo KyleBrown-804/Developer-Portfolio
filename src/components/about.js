@@ -7,7 +7,7 @@ const About = () => {
     <div>
       <Container fluid className="pt-3">
         <Row className="px-5">
-          <Col className="ps-0 h-100">
+          <Col lg={true} className="h-100 pt-3">
             <h1>Who I Am</h1>
             <h4>
               I am a recent Computer Science graduate from Central Washington
@@ -24,7 +24,7 @@ const About = () => {
               cute little Corgi/Pug, Dio (named after the Anime villian).
             </h4>
           </Col>
-          <Col>
+          <Col xl className="pt-3">
             <Image fluid="md" src={DevIcon} alt="Dev Icon"></Image>
           </Col>
         </Row>

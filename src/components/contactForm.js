@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
 import {
   Container,
@@ -66,8 +66,10 @@ const Contact = () => {
 
   return (
     <Container fluid className="pt-3">
+      {/* Section row */}
       <Row className="px-5">
-        <Col className="d-flex flex-column">
+        {/* Image Column */}
+        <Col lg={true} className="d-flex flex-column pt-3">
           <h1>Let's Talk!</h1>
           <Image
             fluid="md"
@@ -76,7 +78,9 @@ const Contact = () => {
             className="mt-auto"
           ></Image>
         </Col>
-        <Col className="d-flex flex-column">
+
+        {/* Form Column */}
+        <Col lg={true} className="d-flex flex-column pt-3">
           <h1 className="text-center">Send Me An Email!</h1>
 
           <Card className="mt-auto">

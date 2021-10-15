@@ -52,7 +52,7 @@ const Experience = () => {
     <Container fluid className="pt-3">
       <Row className="px-5">
         {/* Experience Half */}
-        <Col>
+        <Col lg={true} className="d-flex flex-column pt-3">
           <h1>My Experience</h1>
           <Card className="mt-4">
             <Card.Body>
@@ -93,13 +93,17 @@ const Experience = () => {
         </Col>
 
         {/* Education Half */}
-        <Col className="d-flex flex-column">
-          <Row className="mb-3">
+        <Col xl className="d-flex flex-column pt-3">
+          <Row className="mb-3 mt-4">
             <h1 className="text-center">My Education</h1>
-            <Image src={resumeDevIcon} alt="Resume Dev Icon"></Image>
+            <Image
+              src={resumeDevIcon}
+              alt="Resume Dev Icon"
+              className="mb-3"
+            ></Image>
           </Row>
-          <Row className="mt-auto">
-            <Col>
+          <Row>
+            <Col lg className="d-flex flex-column pb-3">
               <OverlayTrigger
                 trigger="click"
                 placement="top"
@@ -111,7 +115,7 @@ const Experience = () => {
                 </Button>
               </OverlayTrigger>
             </Col>
-            <Col>
+            <Col lg className="d-flex flex-column pb-3">
               <OverlayTrigger
                 trigger="click"
                 placement="top"
@@ -123,7 +127,7 @@ const Experience = () => {
                 </Button>
               </OverlayTrigger>
             </Col>
-            <Col>
+            <Col lg className="d-flex flex-column pb-3">
               <OverlayTrigger
                 trigger="click"
                 placement="top"

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { navigate } from "gatsby-link"
 import { Container, Card, Row, Col, Button, Image } from "react-bootstrap"
-import { useTransition, animated } from "react-spring"
+import { animated } from "react-spring"
 import useInterval from "react-useinterval"
 import headshot from "../images/kyle_dev_icon.svg"
 
@@ -19,8 +19,8 @@ const Hero = props => {
   return (
     <Container fluid className="px-0 mt-5">
       <Card className="mx-5">
-        <Row className="ps-2">
-          <Col className="d-flex flex-column">
+        <Row className="px-3 pt-3">
+          <Col lg={true} className="d-flex flex-column pb-3">
             <h1>
               I'm Kyle Brown, a Computer Science Graduate based in Auburn,
               Washington
@@ -45,7 +45,7 @@ const Hero = props => {
             </Button>
           </Col>
 
-          <Col>
+          <Col xl className="d-flex flex-column mt-auto">
             <Image
               src={headshot}
               alt="Headshot"

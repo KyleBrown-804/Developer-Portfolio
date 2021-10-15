@@ -6,10 +6,11 @@ const Skills = () => {
   return (
     <Container fluid className="pt-3">
       <Row className="px-5">
-        <Col>
+        <Col lg={true} className="pt-3">
           <Image fluid="md" src={DevIcon2} alt="Dev Icon 2"></Image>
         </Col>
-        <Col>
+
+        <Col lg={true} className="pt-3">
           <h1 className="text-center">What I Know</h1>
 
           <Accordion className="mt-4">

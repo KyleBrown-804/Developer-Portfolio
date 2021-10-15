@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
+import openInNewTab from "./util"
 
 // Logos
 import nodeLogo from "../images/node_logo.svg"
@@ -149,47 +150,38 @@ const Projects = () => {
     setProjectGithub(proj.github)
   }
 
-  const openInNewTab = url => {
-    const newWindow = window.open(url, "_blank", "noopener, noreferrer")
-    if (newWindow) {
-      newWindow.opener = null
-    }
-  }
-
   return (
     <Container fluid className="pt-3">
       <Row className="px-5">
         {/* Grid wrapping icons */}
-        <Col className="d-flex flex-column">
+        <Col lg={true} className="d-flex flex-column pt-3">
           <h1>What I've Developed</h1>
 
-          <Row className="mb-3">
-            {chunk(projectsList, 2).map((row, i) => {
-              return (
-                <Row key={i}>
-                  {row.map(item => {
-                    return (
-                      <Col className="my-3" key={item.id}>
-                        <Button
-                          as="div"
-                          variant="outline-secondary"
-                          style={{
-                            display: "inline-flex",
-                            width: "100%",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                          onClick={() => onProjectSwitch(item)}
-                        >
-                          {item.name}
-                        </Button>
-                      </Col>
-                    )
-                  })}
-                </Row>
-              )
-            })}
-          </Row>
+          {chunk(projectsList, 2).map((row, i) => {
+            return (
+              <Row key={i}>
+                {row.map(item => {
+                  return (
+                    <Col className="d-flex flex-column py-3" key={item.id}>
+                      <Button
+                        as="div"
+                        variant="outline-secondary"
+                        style={{
+                          display: "inline-flex",
+                          width: "100%",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                        onClick={() => onProjectSwitch(item)}
+                      >
+                        {item.name}
+                      </Button>
+                    </Col>
+                  )
+                })}
+              </Row>
+            )
+          })}
 
           <Row className="mt-auto">
             {currentProject === "" ? (
@@ -197,7 +189,7 @@ const Projects = () => {
                 Click on one of the projects above to view
               </h4>
             ) : (
-              <Card>
+              <Card className="mt-3">
                 <Card.Title className="px-3 mt-3 mb-0">
                   <h4>About this project:</h4>
                 </Card.Title>
@@ -210,7 +202,7 @@ const Projects = () => {
         </Col>
 
         {/* Image preview and links */}
-        <Col className="d-flex flex-column">
+        <Col xl className="d-flex flex-column pt-3">
           {projectImage === null ? (
             <></>
           ) : (
