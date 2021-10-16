@@ -2,11 +2,11 @@ import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
 import DevIcon from "../images/proud_dev.svg"
 
-const About = () => {
+const About = ({ isMobile }) => {
   return (
     <div>
       <Container fluid className="pt-3">
-        <Row className="px-5">
+        <Row className={isMobile ? "px-1" : "px-5"}>
           <Col lg={true} className="h-100 pt-3">
             <h1>Who I Am</h1>
             <h4>

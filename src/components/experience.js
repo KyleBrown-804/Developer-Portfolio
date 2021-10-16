@@ -35,7 +35,7 @@ const schoolsList = [
   },
 ]
 
-const Experience = () => {
+const Experience = ({ isMobile }) => {
   const popover = index => (
     <Popover id="top-popover">
       <Popover.Header as="h4">{schoolsList[index].name}</Popover.Header>
@@ -50,7 +50,7 @@ const Experience = () => {
 
   return (
     <Container fluid className="pt-3">
-      <Row className="px-5">
+      <Row className={isMobile ? "px-1" : "px-5"}>
         {/* Experience Half */}
         <Col lg={true} className="d-flex flex-column pt-3">
           <h1>My Experience</h1>

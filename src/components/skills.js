@@ -2,10 +2,10 @@ import React from "react"
 import { Container, Accordion, Row, Col, Image } from "react-bootstrap"
 import DevIcon2 from "../images/commits_dev.svg"
 
-const Skills = () => {
+const Skills = ({ isMobile }) => {
   return (
     <Container fluid className="pt-3">
-      <Row className="px-5">
+      <Row className={isMobile ? "px-1" : "px-5"}>
         <Col lg={true} className="pt-3">
           <Image fluid="md" src={DevIcon2} alt="Dev Icon 2"></Image>
         </Col>

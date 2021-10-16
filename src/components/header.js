@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Container, Nav, Navbar } from "react-bootstrap"
-import openInNewTab from "./util"
+import openInNewTab from "../util/openInNewTab"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 

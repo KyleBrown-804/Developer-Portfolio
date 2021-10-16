@@ -18,7 +18,7 @@ const Hero = props => {
 
   return (
     <Container fluid className="px-0 mt-5">
-      <Card className="mx-5">
+      <Card className={props.isMobile ? "mx-3" : "mx-5"}>
         <Row className="px-3 pt-3">
           <Col lg={true} className="d-flex flex-column pb-3">
             <h1>

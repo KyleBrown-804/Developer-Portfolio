@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Seo from "../components/seo"
 import Hero from "../components/hero"
 import About from "../components/about"
@@ -7,6 +7,7 @@ import Projects from "../components/projects"
 import Experience from "../components/experience"
 import Contact from "../components/contactForm"
 import Layout from "../components/layout"
+import Media from "react-media"
 
 const skillsList = [
   "Java",
@@ -40,32 +41,46 @@ const skillsList = [
 ]
 
 const IndexPage = () => {
+  const [deviceMobile, setDeviceMobile] = useState(true)
+
   return (
     <Layout>
+      <Media
+        queries={{
+          mobile: "(max-width: 599px)",
+          desktop: "(min-width: 600px)",
+        }}
+      >
+        {matches => {
+          matches.mobile ? setDeviceMobile(true) : setDeviceMobile(false)
+          return <></>
+        }}
+      </Media>
+
       <Seo title="Home" />
 
       <div style={{ marginBottom: "20%" }}>
-        <Hero skillList={skillsList} />
+        <Hero skillList={skillsList} isMobile={deviceMobile} />
       </div>
 
       <div id="about" style={{ marginBottom: "20%", paddingTop: 70 }}>
-        <About />
+        <About isMobile={deviceMobile} />
       </div>
 
       <div id="skills" style={{ marginBottom: "20%", paddingTop: 70 }}>
-        <Skills />
+        <Skills isMobile={deviceMobile} />
       </div>
 
       <div id="projects" style={{ marginBottom: "20%", paddingTop: 70 }}>
-        <Projects />
+        <Projects isMobile={deviceMobile} />
       </div>
 
       <div id="experience" style={{ marginBottom: "20%", paddingTop: 70 }}>
-        <Experience />
+        <Experience isMobile={deviceMobile} />
       </div>
 
       <div id="contact" style={{ marginBottom: "20%", paddingTop: 70 }}>
-        <Contact />
+        <Contact isMobile={deviceMobile} />
       </div>
     </Layout>
   )

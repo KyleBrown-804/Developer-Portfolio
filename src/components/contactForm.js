@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import ReCAPTCHA from "react-google-recaptcha"
+import Media from "react-media"
 import {
   Container,
   Row,
@@ -23,11 +24,12 @@ function encode(data) {
     .join("&")
 }
 
-const Contact = () => {
+const Contact = ({ isMobile }) => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFailure, setFormFailure] = useState(false)
-  const [recaptchaValue, setRecaptchaValue] = useState(null)
+  const recaptchaRef = useRef()
   const [submissionContent, setSubmissionConent] = useState({})
+  // const [isMobile, setIsMobile] = useState(true)
 
   const handleChange = event => {
     setSubmissionConent({
@@ -39,6 +41,7 @@ const Contact = () => {
   const handleSubmit = event => {
     event.preventDefault()
     setFormFailure(false)
+    const recaptchaValue = recaptchaRef.current.getValue()
 
     fetch("/", {
       method: "POST",
@@ -67,7 +70,7 @@ const Contact = () => {
   return (
     <Container fluid className="pt-3">
       {/* Section row */}
-      <Row className="px-5">
+      <Row className={isMobile ? "px-1" : "px-5"}>
         {/* Image Column */}
         <Col lg={true} className="d-flex flex-column pt-3">
           <h1>Let's Talk!</h1>
@@ -155,7 +158,27 @@ const Contact = () => {
                 ></Form.Control>
               </Form.Group>
 
-              <ReCAPTCHA onChange={setRecaptchaValue} sitekey={RECAPTCHA_KEY} />
+              <Media
+                queries={{
+                  mobile: "(max-width: 599px)",
+                  desktop: "(min-width: 600px)",
+                }}
+              >
+                {matches => (
+                  <>
+                    {matches.mobile && (
+                      <ReCAPTCHA
+                        size="compact"
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_KEY}
+                      />
+                    )}
+                    {matches.desktop && (
+                      <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+                    )}
+                  </>
+                )}
+              </Media>
 
               <Button
                 variant="outline-secondary"

@@ -1,20 +1,19 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
-import openInNewTab from "./util"
+import openInNewTab from "../util/openInNewTab"
 
-// Logos
-import nodeLogo from "../images/node_logo.svg"
-import reactLogo from "../images/react_icon.png"
-
+// Projects Images
 import codingSvg from "../images/code_computer.svg"
 import cpuSimImg from "../images/cpusim1.png"
 import buggyAIImg from "../images/buggyai.png"
-import synthImg from "../images/synthy1.png"
+import synthImg from "../images/synthy.png"
+import budgetAppImg from "../images/budgetApp.png"
+import recipeAppImg from "../images/recipeApp.jpg"
 
 const projectsList = [
   {
     name: "Budgeting App",
-    image: nodeLogo,
+    image: budgetAppImg,
     id: 1,
     demo: "",
     github: "https://github.com/KyleBrown-804/Budget-Bois",
@@ -28,7 +27,7 @@ const projectsList = [
   },
   {
     name: "Recipe Logger",
-    image: reactLogo,
+    image: recipeAppImg,
     id: 3,
     demo: "",
     github: "https://github.com/KyleBrown-804/Recipe-App",
@@ -125,7 +124,7 @@ const descriptions = [
   },
 ]
 
-const Projects = () => {
+const Projects = ({ isMobile }) => {
   const [currentProject, setCurrentProject] = useState("")
   const [projectImage, setProjectImage] = useState(null)
   const [projectDescription, setProjectDescription] = useState("")
@@ -152,7 +151,7 @@ const Projects = () => {
 
   return (
     <Container fluid className="pt-3">
-      <Row className="px-5">
+      <Row className={isMobile ? "px-1" : "px-5"}>
         {/* Grid wrapping icons */}
         <Col lg={true} className="d-flex flex-column pt-3">
           <h1>What I've Developed</h1>
@@ -163,19 +162,22 @@ const Projects = () => {
                 {row.map(item => {
                   return (
                     <Col className="d-flex flex-column py-3" key={item.id}>
-                      <Button
-                        as="div"
-                        variant="outline-secondary"
-                        style={{
-                          display: "inline-flex",
-                          width: "100%",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                        onClick={() => onProjectSwitch(item)}
-                      >
-                        {item.name}
-                      </Button>
+                      <Container fluid style={{ height: "100%" }}>
+                        <Button
+                          as="div"
+                          variant="outline-secondary"
+                          style={{
+                            display: "inline-flex",
+                            width: "100%",
+                            height: "100%",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                          onClick={() => onProjectSwitch(item)}
+                        >
+                          {item.name}
+                        </Button>
+                      </Container>
                     </Col>
                   )
                 })}
@@ -183,7 +185,7 @@ const Projects = () => {
             )
           })}
 
-          <Row className="mt-auto">
+          <Row className={isMobile ? "mt-auto px-3" : "mt-auto"}>
             {currentProject === "" ? (
               <h4 className="text-center">
                 Click on one of the projects above to view
@@ -202,7 +204,7 @@ const Projects = () => {
         </Col>
 
         {/* Image preview and links */}
-        <Col xl className="d-flex flex-column pt-3">
+        <Col sm className="d-flex flex-column pt-3">
           {projectImage === null ? (
             <></>
           ) : (
@@ -212,12 +214,15 @@ const Projects = () => {
             <></>
           ) : (
             <Row className="mt-auto">
-              <Image
-                src={projectImage}
-                alt="CPU Sim Screenshot"
-                className="my-3"
-                size="md"
-              ></Image>
+              <Container fluid>
+                <Image
+                  src={projectImage}
+                  alt="CPU Sim Screenshot"
+                  className="my-3"
+                  style={{ height: "auto", width: "100%" }}
+                ></Image>
+              </Container>
+
               <Col>
                 <Button
                   variant="outline-secondary"
