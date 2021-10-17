@@ -131,7 +131,7 @@ const Contact = ({ isMobile }) => {
                     </label>
                   </p>
 
-                  {formSuccess === true ? (
+                  {formSuccess === false ? (
                     <></>
                   ) : (
                     <Alert variant="success">
