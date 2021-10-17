@@ -29,9 +29,23 @@ function encode(data) {
 const Contact = ({ isMobile }) => {
   const [formSuccess, setFormSuccess] = useState(false)
   const [formFailure, setFormFailure] = useState(false)
+  const [activeCaptcha, setActiveCaptcha] = useState(false)
+  const [captchaAlert, setCaptchaAlert] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const recaptchaRef = useRef()
   const [submissionContent, setSubmissionConent] = useState({})
 
+  const onCaptchaChange = () => {
+    setActiveCaptcha(true) 
+    setCaptchaAlert(false)
+  }
+
+  const onCaptchaExpire = () => {
+    setActiveCaptcha(false)
+    setCaptchaAlert(false)
+  }
+
+  // Used for honeypot field
   const onChange = event => {
     setSubmissionConent({
       ...submissionContent,
@@ -40,6 +54,12 @@ const Contact = ({ isMobile }) => {
   }
 
   const netlifySubmit = values => {
+    if (!activeCaptcha) {
+      setCaptchaAlert(true)
+      return
+    }
+    
+    setSubmitting(true)
     setFormFailure(false)
     const recaptchaValue = recaptchaRef.current.getValue()
 
@@ -59,9 +79,11 @@ const Contact = ({ isMobile }) => {
         } else {
           setFormFailure(true)
         }
+        setSubmitting(false)
       })
       .catch(error => {
         setFormFailure(true)
+        setSubmitting(false)
       })
   }
 
@@ -209,6 +231,7 @@ const Contact = ({ isMobile }) => {
                     </Form.Control.Feedback>
                   </Form.Group>
 
+                  <Alert variant="danger" hidden={!captchaAlert}>reCAPTCHA must be completed</Alert>
                   <Media
                     queries={{
                       mobile: "(max-width: 599px)",
@@ -222,12 +245,16 @@ const Contact = ({ isMobile }) => {
                             size="compact"
                             ref={recaptchaRef}
                             sitekey={RECAPTCHA_KEY}
+                            onChange={onCaptchaChange}
+                            onExpired={onCaptchaExpire}
                           />
                         )}
                         {matches.desktop && (
                           <ReCAPTCHA
                             ref={recaptchaRef}
                             sitekey={RECAPTCHA_KEY}
+                            onChange={onCaptchaChange}
+                            onExpired={onCaptchaExpire}
                           />
                         )}
                       </>
@@ -238,6 +265,7 @@ const Contact = ({ isMobile }) => {
                     variant="outline-secondary"
                     type="submit"
                     className="w-100 mt-3"
+                    disabled={submitting}
                   >
                     Submit
                   </Button>
