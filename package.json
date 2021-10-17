@@ -11,6 +11,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
     "bootstrap": "^5.1.1",
+    "formik": "^2.2.9",
     "gatsby": "^3.13.1",
     "gatsby-plugin-fontawesome-css": "^1.1.0",
     "gatsby-plugin-image": "^1.13.0",
@@ -28,7 +29,8 @@
     "react-helmet": "^6.1.0",
     "react-media": "^1.10.0",
     "react-spring": "^9.2.4",
-    "react-useinterval": "^1.0.2"
+    "react-useinterval": "^1.0.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "prettier": "2.4.1"
