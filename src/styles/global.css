@@ -2,12 +2,3 @@ body {
   font-family: "Poppins", "Roboto";
   padding-top: 70px;
 }
-
-/* Media Query for Captcha size change mobile */
-
-/* Media Query for mobile side padding/margins vs desktop */
-/* @media screen and (max-width: 768px) {
-  .resp-padding {
-
-  }
-} */

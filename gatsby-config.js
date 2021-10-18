@@ -3,7 +3,8 @@ module.exports = {
     title: `Kyle Brown Portfolio`,
     description: `Welcome to my software developer portfolio!`,
     author: `@Kyle Brown`,
-    siteUrl: `https://kylebrown.page/`,
+    siteUrl: `https://kylebrown.page`,
+    image: `/images/kyle_dev_icon.png`,
   },
   plugins: [
     `gatsby-plugin-fontawesome-css`,
@@ -24,7 +25,7 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#4842A6`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
