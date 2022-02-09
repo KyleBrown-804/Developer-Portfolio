@@ -1,6 +1,6 @@
-import React, { useState } from "react"
 import { navigate } from "gatsby-link"
-import { Container, Card, Row, Col, Button, Image } from "react-bootstrap"
+import React, { useState } from "react"
+import { Button, Card, Col, Container, Image, Row } from "react-bootstrap"
 import { animated } from "react-spring"
 import useInterval from "react-useinterval"
 import headshot from "../images/kyle_dev_icon.svg"
@@ -22,12 +22,10 @@ const Hero = props => {
         <Row className="px-3 pt-3">
           <Col lg={true} className="d-flex flex-column pb-3">
             <h1>
-              I'm Kyle Brown, a Computer Science Graduate based in Auburn,
-              Washington
+              I'm Kyle Brown, a Computer Science Graduate based in Washington State
             </h1>
             <animated.h3 className="py-2">
-              I am looking for an entry or junior level software engineer or
-              software developer position in or around Seattle, Washington.
+              I am a Front-End Software Development Engineer who enjoys learning new technologies and challenging himself.
               <br />
               <br />
               <em>A few things I can do:</em>
@@ -41,7 +39,7 @@ const Hero = props => {
               role="link"
               onClick={() => navigate("/#contact")}
             >
-              Hire Me!
+              Contact Me!
             </Button>
           </Col>
 

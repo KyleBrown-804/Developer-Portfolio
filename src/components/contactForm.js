@@ -1,18 +1,12 @@
+import { Formik } from "formik"
 import React, { useRef, useState } from "react"
+import {
+  Alert, Button,
+  Card, Col, Container, Form, Image, Row
+} from "react-bootstrap"
 import ReCAPTCHA from "react-google-recaptcha"
 import Media from "react-media"
-import { Formik } from "formik"
 import * as yup from "yup"
-import {
-  Container,
-  Row,
-  Col,
-  Image,
-  Button,
-  Card,
-  Form,
-  Alert,
-} from "react-bootstrap"
 import contactDevIcon from "../images/contact_dev.svg"
 
 const RECAPTCHA_KEY = process.env.GATSBY_SITE_RECAPTCHA_KEY
@@ -213,7 +207,7 @@ const Contact = ({ isMobile }) => {
                     <Form.Control
                       as="textarea"
                       rows={4}
-                      placeholder="Hello Kyle! My name is ___, I found your portfolio and wanted to schedule an interview with you sometime this week."
+                      placeholder="Hello Kyle! My name is ___, I found your portfolio and wanted to chat with you about ___."
                       style={{ resize: "none" }}
                       maxLength={2200}
                       name="message"

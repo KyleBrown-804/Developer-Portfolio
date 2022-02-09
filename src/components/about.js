@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Image } from "react-bootstrap"
+import { Col, Container, Image, Row } from "react-bootstrap"
 import DevIcon from "../images/proud_dev.svg"
 
 const About = ({ isMobile }) => {
@@ -10,7 +10,7 @@ const About = ({ isMobile }) => {
           <Col lg={true} className="h-100 pt-3">
             <h1>Who I Am</h1>
             <h4>
-              I am a recent Computer Science graduate from Central Washington
+              I am a Computer Science graduate from Central Washington
               University. I have experience in multiple languages, frameworks,
               environments, and experience between both back-end and front-end
               development. I am interested in Web Development as well as
