@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Image, Button, Card } from "react-bootstrap"
-import openInNewTab from "../util/openInNewTab"
-
+import { Button, Card, Col, Container, Image, Row } from "react-bootstrap"
+import budgetAppImg from "../images/budgetApp.png"
+import buggyAIImg from "../images/buggyai.png"
 // Projects Images
 import codingSvg from "../images/code_computer.svg"
 import cpuSimImg from "../images/cpusim1.png"
-import buggyAIImg from "../images/buggyai.png"
-import synthImg from "../images/synthy.png"
-import budgetAppImg from "../images/budgetApp.png"
 import recipeAppImg from "../images/recipeApp.jpg"
+import synthImg from "../images/synthy.png"
+import openInNewTab from "../util/openInNewTab"
+
 
 const projectsList = [
   {
@@ -22,7 +22,7 @@ const projectsList = [
     name: "BuggyAI",
     image: buggyAIImg,
     id: 2,
-    demo: "https://buggyai.com/",
+    demo: "",
     github: "https://github.com/CWU-BuggyAI/BuggyAI_Source",
   },
   {
@@ -78,7 +78,7 @@ const descriptions = [
       "by sending user images to the API using AJAX, which would then be validated with a machine learning model kept " +
       "server side. I also handled integrating SSL certification with Certbot and added Fail2Ban for security measures. " +
       "The full repository for this website including the machine learning training can be found by clicking the GitHub " +
-      "button to the right! This website is still live and can be viewed by clicking the Demo button to the right!",
+      "button to the right! Note: This website is no longer available as a live demo",
   },
   {
     id: 3,

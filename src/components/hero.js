@@ -22,10 +22,10 @@ const Hero = props => {
         <Row className="px-3 pt-3">
           <Col lg={true} className="d-flex flex-column pb-3">
             <h1>
-              I'm Kyle Brown, a Computer Science Graduate based in Washington State
+              I'm Kyle Brown, a Front-End Software Development Engineer
             </h1>
             <animated.h3 className="py-2">
-              I am a Front-End Software Development Engineer who enjoys learning new technologies and challenging himself.
+              I enjoy creating responsive websites, UI, and learning new technologies and challenging myself.
               <br />
               <br />
               <em>A few things I can do:</em>
